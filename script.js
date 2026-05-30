@@ -1,10 +1,10 @@
-const apiKey = "2a614d17c8ba5ff342fffcc438527034"
+const apiKey = "8d4d47e3f3e41e9559fac12656d7a595"
 const weatherDataEle = document.querySelector("#weather-data")
 const cityNameEle = document.querySelector("#city-name")
 const formEle = document.querySelector("form")
 const imgIcon = document.querySelector(".icon")
 
-formEle.addEventListener("sumbit", (e)=>{
+formEle.addEventListener("submit", (e)=>{
     e.preventDefault()                            // (e)-> event To stop a form from submitting and reloading the page by default (behaviour of event)
     // console.log(cityNameEle.value);
     const cityValue = cityNameEle.value
@@ -18,9 +18,9 @@ async function getWeatherData(cityValue){
         if(!response.ok){
             throw new Error("Network response is not ok!")
         }
-        const data = response.json()
+        const data = await response.json()
         console.log(data); 
     }catch(err){
-
+        
     }
 }
