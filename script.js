@@ -19,8 +19,30 @@ async function getWeatherData(cityValue){
             throw new Error("Network response is not ok!")
         }
         const data = await response.json()
-        console.log(data); 
+        // console.log(data);
+
+        const temperature = Math.floor(data.main.temp)         // all accessed from json object
+        const description = data.weather[0].description
+        const icon = data.weather[0].icon
+
+        const details = [                                      // creating array to access all in place
+            `Feels Like: ${Math.floor(data.main.feels_like)}°C`,
+            `Humidity: ${data.main.humidity}%,`
+            `Wind Speed: ${data.wind.speed} m/s`
+        ]
+
+        weatherDataEle.querySelector(".temp").textContent = `${temperature}°C`
+        weatherDataEle.querySelector(".desc").textContent = `${description}`
+
+        imgIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}.png" alt="">`
+
+        weatherDataEle.querySelector(".details").innerHTML = details.map(()=>{
+            return `<div>${detail}<div>`
+        }).join("")
+
     }catch(err){
-        
+        weatherDataEle.querySelector(".temp").textContent = ""
+        imgIcon.innerHTML = ""
+        weatherDataEle.querySelector(".desc").textContent = "An Error Occured!"
     }
 }
