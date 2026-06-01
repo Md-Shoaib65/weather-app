@@ -36,7 +36,9 @@ async function getWeatherData(cityValue){
 
         imgIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}.png" alt="">`
 
-        weatherDataEle.querySelector(".details").innerHTML = details.map(()=>{
+          weatherDataEle.querySelector(".details").innerHTML = details.map((detail)=>{
+            return `<div>${detail}<div>`
+        }).join("")
             return `<div>${detail}<div>`
         }).join("")
 
