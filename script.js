@@ -1,8 +1,9 @@
 const apiKey = "8d4d47e3f3e41e9559fac12656d7a595"
+
 const weatherDataEle = document.querySelector("#weather-data")
 const cityNameEle = document.querySelector("#city-name")
 const formEle = document.querySelector("form")
-const imgIcon = document.querySelector(".icon")
+const imgIcon = document.querySelector(".icon")   // Later, I will fetch data from the OpenWeatherMap API using JavaScript. Based on that data, I will dynamically change the background or weather image to match the current weather conditions.
 
 formEle.addEventListener("submit", (e)=>{
     e.preventDefault()                            // (e)-> event To stop a form from submitting and reloading the page by default (behaviour of event)
@@ -25,9 +26,9 @@ async function getWeatherData(cityValue){
         const description = data.weather[0].description
         const icon = data.weather[0].icon
 
-        const details = [                                      // creating array to access all in place
+        const details = [                                      // creating array to access all in place from json object
             `Feels Like: ${Math.floor(data.main.feels_like)}°C`,
-            `Humidity: ${data.main.humidity}%,`
+            `Humidity: ${data.main.humidity}%`,
             `Wind Speed: ${data.wind.speed} m/s`
         ]
 
@@ -36,7 +37,7 @@ async function getWeatherData(cityValue){
 
         imgIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}.png" alt="">`
 
-        weatherDataEle.querySelector(".details").innerHTML = details.map(()=>{
+        weatherDataEle.querySelector(".details").innerHTML = details.map((detail)=>{
             return `<div>${detail}<div>`
         }).join("")
 
