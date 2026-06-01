@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href=
+    "style.css">
 </head>
 <body>
-    <div class="class">
-        <h2>Weather App⛅</h2>
-        <div class="row">
-            <input type="text" id="input-box" placeholder="Enter your city">
-            <button onclick="citySearch()">Search</button>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form action="#">
+            <input id="city-name" type="text" placeholder="Enter your city">
+            <input type="submit" value="Get weather">
+        </form>
+        <div id="weather-data">
+            <div class="icon">                 
+            </div>
+            <div class="temp"></div>
+            <div class="desc"></div>
+
+            <div class="details">
+            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
