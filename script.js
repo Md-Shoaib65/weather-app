@@ -28,7 +28,7 @@ async function getWeatherData(cityValue){
 
         const details = [                                      // creating array to access all in place from json object
             `Feels Like: ${Math.floor(data.main.feels_like)}°C`,
-            `Humidity: ${data.main.humidity}%`,
+`Humidity: ${data.main.humidity}%`,
             `Wind Speed: ${data.wind.speed} m/s`
         ]
 
@@ -37,9 +37,10 @@ async function getWeatherData(cityValue){
 
         imgIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}.png" alt="">`
 
-        weatherDataEle.querySelector(".details").innerHTML = details.map((detail)=>{
+          weatherDataEle.querySelector(".details").innerHTML = details.map((detail)=>{
             return `<div>${detail}<div>`
         }).join("")
+      
 
     }catch(err){
         weatherDataEle.querySelector(".temp").textContent = ""
