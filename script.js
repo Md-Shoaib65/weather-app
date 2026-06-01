@@ -27,7 +27,7 @@ async function getWeatherData(cityValue){
 
         const details = [                                      // creating array to access all in place
             `Feels Like: ${Math.floor(data.main.feels_like)}°C`,
-            `Humidity: ${data.main.humidity}%,`
+`Humidity: ${data.main.humidity}%`,
             `Wind Speed: ${data.wind.speed} m/s`
         ]
 
